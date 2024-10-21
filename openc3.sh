@@ -21,7 +21,7 @@ if [ "$?" -ne 0 ]; then
   export DOCKER_COMPOSE_COMMAND="docker-compose"
 fi
 
-docker info | grep -e "rootless$" -e "rootless: true"
+docker info | grep -q -e "rootless$" -e "rootless: true"
 if [ "$?" -ne 0 ]; then
   export OPENC3_ROOTFUL=1
   export OPENC3_USER_ID=`id -u`
